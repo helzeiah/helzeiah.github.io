@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8">
     <title>my site – ◊(select 'h1 doc)</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
   </head>
 
   <body>
