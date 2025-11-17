@@ -1,0 +1,1 @@
+((3) 0 () 0 () () (h - () (metas h - () (here-path . "/Users/helzeiah/desktop/website/index.pm")) (doc q root (h1 "Hi, I'm Helzeiah") (p "[I'm] a sophomore studying Computer Science and Mathematics at Northeastern University." (br) "[I'm] interested in low-level-programming, quantitative finance, and teaching.") (p "Check out my Blog & Portfolio!"))))

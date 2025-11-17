@@ -1,0 +1,1 @@
+("8.18" tarm64osx ("a4000cd6a1c40d6136797290d8b0612a6f7b1027" . "4247e5a4ab274ade41ac20d7898cdc6a51fc7056") (collects #"drracket" #"private" #"drracket-errortrace-key.rkt") (collects #"pollen" #"decode.rkt") (collects #"racket" #"main.rkt") (collects #"racket" #"runtime-config.rkt") (collects #"txexpr" #"main.rkt"))
