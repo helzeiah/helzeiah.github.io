@@ -1,0 +1,13 @@
+# Pollen build cache
+compiled/
+blog/compiled/
+portfolio/compiled/
+
+# Pollen/Racket editor backup files
+*.pm~
+*.rkt~
+*.p~
+*.html~
+
+# macOS
+.DS_Store
