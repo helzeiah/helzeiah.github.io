@@ -1601,8 +1601,8 @@ function escHtml(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// Show home screen on load
-showScreen('home');
+// Show home screen once the screen divs exist in the DOM
+window.addEventListener('DOMContentLoaded', function() { showScreen('home'); });
 </script>
 
 <!-- ═══════════════════════════════════════════════════════
