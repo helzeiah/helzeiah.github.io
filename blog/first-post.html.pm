@@ -98,4 +98,4 @@ I can also do some centered "\[" type of math, here's the Black-Scholes formula 
 
 ◊h3{That's it for now}
 
-Future posts will be less "look at my setup" and more actual content — projects, ideas, things I'm thinking about. If you want to look into or steal my ◊link["https://docs.racket-lang.org/pollen/"]{Pollen} setup, the source is on my ◊link["https://github.com/helzeiah/helzeiah.github.io"]{GitHub}, with a readme of instructions available!
+Future posts will be less "look at my setup" and more actual content — projects, ideas, things I'm thinking about. If you want to look into or steal my ◊link["https://docs.racket-lang.org/pollen/"]{Pollen} setup, the source is on my ◊link["https://github.com/helzeiah/helzeiah.github.io"]{GitHub}.
