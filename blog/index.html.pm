@@ -1,3 +1,7 @@
 #lang pollen
 
-◊h1{blog blog blog... coming soon}
+◊(define-meta title "Helzeiah -- Blog")
+
+◊h1{Helzeiah -- Blog}
+
+◊(blog-listing)

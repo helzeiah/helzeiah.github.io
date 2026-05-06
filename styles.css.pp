@@ -1,3 +1,5 @@
+#lang pollen
+
 :root {
   --bg:      #f5edda;
   --text:    #2c2416;
@@ -165,16 +167,12 @@ pre code {
 
 /* Note aside */
 
-.note, .footnote {
+.note {
   border-left: 2px solid var(--line);
   padding: 0.2rem 0 0.2rem 1rem;
   color: var(--muted);
   font-size: 0.9rem;
   margin: 1.25rem 0;
-}
-
-.footnote {
-  margin-top: 2rem;
 }
 
 /* Blog post list */

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>First Post -- Life Currently and a Feature Showcase</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/styles.css">
+    <script>(function(){var t=parseFloat(localStorage.getItem('mc-spill')||'0');if(t>0){function l(a,b,t){t=Math.max(0,Math.min(1,t));var n=parseInt(a.slice(1),16),m=parseInt(b.slice(1),16);return'rgb('+[16,8,0].map(function(s){return~~(((n>>s)&255)+(((m>>s)&255)-((n>>s)&255))*t)}).join(',')+')';}var r=document.documentElement;r.style.setProperty('--bg',l('#f5edda','#74c87a',t));r.style.setProperty('--line',l('#d9cebc','#58b060',t*0.85));r.style.setProperty('--code-bg',l('#ece2cc','#84cc88',t*0.65));}})();</script>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <link rel="stylesheet" href="/assets/gruvbox-dark-hard.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+    <script defer src="/assets/highlight.min.js"></script>
+    <script defer src="/assets/highlight-scheme.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (typeof hljs !== "undefined") {
+          if (hljs.getLanguage("scheme")) {
+            hljs.registerAliases("racket", { languageName: "scheme" });
+          }
+          hljs.highlightAll();
+        }
+        if (window.renderMathInElement) {
+          window.renderMathInElement(document.body, {
+            delimiters: [
+              {left: "$$", right: "$$", display: true},
+              {left: "$", right: "$", display: false}
+            ],
+            throwOnError: false
+          });
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <nav class="site-nav">
+          <a href="/index.html">Home</a>
+          <a href="/blog/index.html">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="content">
+      <p class="meta"><a href="/blog/index.html">← Blog</a></p><h1>First Post -- Life Currently and a Feature Showcase</h1><p>Hi, my first blog post, yay! The thought of having a website with a blog has been sitting in the back of my mind for the past few months, and I've finally set the time aside to make it a reality. I hope to use these blog posts a way to talk about my projects, interests, and life in general, hopefully sharing some insightful information along the way.</p><h3><code>whoami</code></h3><pre><code class="language-text">Helzeiah Oliveira | 20yo | problem solver i guess
+Current Mathematics Major at Northeastern, Minor in CS
+Potentially Pursuing a Physics minor
+Used to be a Computer Science and Math combined Major
+Current Software Engineer Co-op at Auria Space
+Interested in learning more about:
+Quant, AI (contributing to safe AI would be amazing),
+Psychology, The World, and Ethics</code></pre><hr/><h3>Features and Stuff</h3><p>I find it so cool how I can simply use <code>◊codeblock{}</code> via <a href="https://docs.racket-lang.org/pollen/">Pollen</a> to display such codeblocks. Here's a random idea of C++ code (from a problem i've seen before) I made while writing this:</p><pre><code class="language-cpp">#include &lt;vector&gt;
+#include &lt;unordered_map&gt;
+#include &lt;random&gt;
+
+template &lt;typename T&gt;
+class RandomSet {
+  std::vector&lt;T&gt; m_vec;
+  std::unordered_map&lt;T, size_t&gt; m_elemToIdxMap;
+  std::mt19937 m_randGen{std::random_device{}()};
+
+public:
+
+  RandomSet() = default;
+  ~RandomSet() = default;
+
+  void insert(const T&amp; element) {
+    auto [it, inserted] = m_elemToIdxMap.insert({element, m_vec.size()});
+    if (inserted) {
+      m_vec.push_back(element);
+    }
+  }
+
+  void remove(const T&amp; element) {
+    try {
+      size_t idx = m_elemToIdxMap.at(element);
+      // swap and pop
+      T last = m_vec.back();
+      m_vec[idx] = last;
+      m_elemToIdxMap[last] = idx;
+      m_vec.pop_back();
+
+      m_elemToIdxMap.erase(element);
+    } catch (std::exception&amp; e) {
+      throw std::invalid_argument("Given element does not exist in the set. -- RandomSet::remove()");
+    }
+  }
+
+  T getRandom() {
+    if (m_vec.empty()) {
+      throw std::out_of_range("Cannot get random element from an empty RandomSet. -- RandomSet::getRandom()");
+    }
+    std::uniform_int_distribution&lt;size_t&gt; distr(0, m_vec.size() - 1);
+    size_t idx = distr(m_randGen);
+    return m_vec[idx];
+  }
+
+  bool contains(const T&amp; element) const {
+    return m_elemToIdxMap.contains(element);
+  }
+
+};</code></pre><p>If you're are a "lazy person", in the sense that, you also, like me, want things to be as optimized, simple and easy as possible, <a href="https://racket-lang.org/">Racket</a> and <a href="https://docs.racket-lang.org/pollen/">Pollen</a> is the answer to making sites for you. I know a lot of people like myself who simply avoid frontend development. I wanted a way to have a blog with cool inline codeblocks, math, and other features that didn't require me to know any crazy frontend stuff that I couldn't bother to learn. <a href="https://docs.racket-lang.org/pollen/">Pollen</a> was the answer to this problem, along with A TON of help from <a href="https://claude.ai/code">Claude Code</a>. It's beautiful how there's now a very small barrier between <em>anyone</em> having their own site, and showcasing creative work. You don't have to go through <span class="fn-ref">tutorial hell<sup>[1]</sup></span> to learn frontend frameworks, you can solely be a backend problem solver like me who wanted a place to share their ideas.</p><aside class="footnote"><sup>[1] </sup><strong>tutorial hell</strong> — Spending months watching tutorials without writing a single line of code.</aside><h3>Math, because I can</h3><p>Being a math major and all, I wanted some math rendering $ \text{Helzeiah} + \text{Claude} + \text{Pollen} = \text{perfect tooling for an awesome website}$.</p><p>I can also do some centered "\[" type of math, here's the Black-Scholes formula (i DO NOT have this memorized):</p><p>$$\frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2 S^2 \frac{\partial^2 V}{\partial S^2} + rS\frac{\partial V}{\partial S} - rV = 0$$</p><aside class="note">The math renders client-side via KaTeX. Just write <code>◊math{}</code> or <code>◊display-math{}</code> and it works.</aside><h3>That's it for now</h3><p>Future posts will be less "look at my setup" and more actual content — projects, ideas, things I'm thinking about. If you want to look into or steal my <a href="https://docs.racket-lang.org/pollen/">Pollen</a> setup, the source is on my github, with a readme of instructions available!</p>
+    </main>
+    <script src="/assets/matcha.js?v=2"></script>
+  </body>
+</html>

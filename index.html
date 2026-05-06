@@ -1,19 +1,52 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>my site – Hi, I'm Helzeiah</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Helzeiah Oliveira</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="/styles.css">
+    <script>(function(){var t=parseFloat(localStorage.getItem('mc-spill')||'0');if(t>0){function l(a,b,t){t=Math.max(0,Math.min(1,t));var n=parseInt(a.slice(1),16),m=parseInt(b.slice(1),16);return'rgb('+[16,8,0].map(function(s){return~~(((n>>s)&255)+(((m>>s)&255)-((n>>s)&255))*t)}).join(',')+')';}var r=document.documentElement;r.style.setProperty('--bg',l('#f5edda','#74c87a',t));r.style.setProperty('--line',l('#d9cebc','#58b060',t*0.85));r.style.setProperty('--code-bg',l('#ece2cc','#84cc88',t*0.65));}})();</script>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <link rel="stylesheet" href="/assets/gruvbox-dark-hard.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+    <script defer src="/assets/highlight.min.js"></script>
+    <script defer src="/assets/highlight-scheme.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (typeof hljs !== "undefined") {
+          if (hljs.getLanguage("scheme")) {
+            hljs.registerAliases("racket", { languageName: "scheme" });
+          }
+          hljs.highlightAll();
+        }
+        if (window.renderMathInElement) {
+          window.renderMathInElement(document.body, {
+            delimiters: [
+              {left: "$$", right: "$$", display: true},
+              {left: "$", right: "$", display: false}
+            ],
+            throwOnError: false
+          });
+        }
+      });
+    </script>
   </head>
-
   <body>
-    <nav>
-      <a href="/index.html">home</a> ·
-      <a href="/blog/index.html">blog</a> ·
-      <a href="/portfolio/index.html">portfolio</a>
-    </nav>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <nav class="site-nav">
+          <a href="/index.html">Home</a>
+          <a href="/blog/index.html">Blog</a>
+        </nav>
+      </div>
+    </header>
 
-    <main>
-      <h1>Hi, I'm Helzeiah</h1><p><strong>I'm</strong> a sophomore studying Computer Science and Mathematics at Northeastern University.</p><p><strong>I'm</strong> interested in low-level-programming, quantitative finance, and teaching.</p><p>Check out my <a href="/blog/index.html">Blog</a> &amp; <a href="/portfolio/index.html">Portfolio</a>!</p>
+    <main class="content">
+      <h1>Hi, I'm Helzeiah Oliveira</h1><p>I'm currently a Mathematics major at Notheastern University with a minor in Computer Science and potentially Physics.</p><p>Outside the classroom, I'm interested in quantitative finance, safe AI, and high performance computing. To the core, I'm a problem solver. It's a huge part of my character and decision making process.</p><p>Outside of outside the classroom :D, I'm interested in self-improvement, fitness, basketball, music &amp; music production (sometimes), movies, and reading (also sometimes).</p><p>Read my <a href="/blog/index.html">blog</a>.</p>
     </main>
+    <script src="/assets/matcha.js?v=2"></script>
   </body>
 </html>

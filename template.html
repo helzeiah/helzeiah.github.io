@@ -1,18 +1,36 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>my site – ◊(select 'h1 doc)</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>◊(select 'h1 doc)</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+    <script defer>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.renderMathInElement) {
+          window.renderMathInElement(document.body, {
+            delimiters: [
+              {left: "$$", right: "$$", display: true},
+              {left: "$", right: "$", display: false}
+            ],
+            throwOnError: false
+          });
+        }
+      });
+    </script>
   </head>
-
   <body>
-    <nav>
-      <a href="/index.html">home</a> ·
-      <a href="/blog/index.html">blog</a> ·
-      <a href="/portfolio/index.html">portfolio</a>
-    </nav>
+    <header class="site-header">
+      <a class="site-name" href="/index.html">Helzeiah Oliveira</a>
+      <nav class="site-nav">
+        <a href="/index.html">Home</a>
+        <a href="/blog/index.html">Blog</a>
+      </nav>
+    </header>
 
-    <main>
+    <main class="content">
       ◊(->html doc #:splice? #t)
     </main>
   </body>
