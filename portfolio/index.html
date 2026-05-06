@@ -1,19 +1,52 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>my site – poor-t-folio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio — Helzeiah Oliveira</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="/styles.css">
+    <script>(function(){var t=parseFloat(localStorage.getItem('mc-spill')||'0');if(t>0){function l(a,b,t){t=Math.max(0,Math.min(1,t));var n=parseInt(a.slice(1),16),m=parseInt(b.slice(1),16);return'rgb('+[16,8,0].map(function(s){return~~(((n>>s)&255)+(((m>>s)&255)-((n>>s)&255))*t)}).join(',')+')';}var r=document.documentElement;r.style.setProperty('--bg',l('#f5edda','#74c87a',t));r.style.setProperty('--line',l('#d9cebc','#58b060',t*0.85));r.style.setProperty('--code-bg',l('#ece2cc','#84cc88',t*0.65));}})();</script>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <link rel="stylesheet" href="/assets/gruvbox-dark-hard.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+    <script defer src="/assets/highlight.min.js"></script>
+    <script defer src="/assets/highlight-scheme.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (typeof hljs !== "undefined") {
+          if (hljs.getLanguage("scheme")) {
+            hljs.registerAliases("racket", { languageName: "scheme" });
+          }
+          hljs.highlightAll();
+        }
+        if (window.renderMathInElement) {
+          window.renderMathInElement(document.body, {
+            delimiters: [
+              {left: "$$", right: "$$", display: true},
+              {left: "$", right: "$", display: false}
+            ],
+            throwOnError: false
+          });
+        }
+      });
+    </script>
   </head>
-
   <body>
-    <nav>
-      <a href="/index.html">home</a> ·
-      <a href="/blog/index.html">blog</a> ·
-      <a href="/portfolio/index.html">portfolio</a>
-    </nav>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <nav class="site-nav">
+          <a href="/index.html">Home</a>
+          <a href="/blog/index.html">Blog</a>
+        </nav>
+      </div>
+    </header>
 
-    <main>
-      <h1>poor-t-folio</h1>
+    <main class="content">
+      <h1>Portfolio</h1><p>Selected projects and areas of focus.</p><ul class="project-list"><li><strong>Project name.</strong> Description of what it does, the stack, and what you learned. Add a link when ready.</li><li><strong>Project name.</strong> Another project — fill in when ready.</li></ul><h2>Interests</h2><p>Systems programming, quantitative finance, teaching and mentorship.</p>
     </main>
+    <script src="/assets/matcha.js?v=2"></script>
   </body>
 </html>
