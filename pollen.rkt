@@ -1,7 +1,7 @@
 #lang racket
 
 (provide root link ic codeblock math display-math
-         blog-entry post-meta note blog-listing fn footnote)
+         blog-entry post-meta note blog-listing fn footnote blog-header)
 
 (require pollen/decode pollen/setup
          txexpr racket/string racket/file)
@@ -70,6 +70,26 @@
            (txexpr 'strong empty (list term))
            " — "
            content)))
+
+; blog-header: full top-of-post header — back link, title, date, read time.
+; Reads its own metas (title, date) from the .pm source by filename so callers
+; only need to pass the filename. Read time = ceil(word-count / 238 wpm).
+; Usage: ◊(blog-header "first-post.html.pm")
+(define (blog-header filename)
+  (define src-path (build-path (current-project-root) "blog" filename))
+  (define src-text (file->string src-path))
+  (define (meta key)
+    (let ([m (regexp-match (pregexp (format "◊\\(define-meta ~a \"([^\"]*)\"\\)" key)) src-text)])
+      (if m (second m) "")))
+  (define title (meta "title"))
+  (define date (meta "date"))
+  (define stripped (regexp-replace* #px"◊[A-Za-z0-9_-]*(\\[[^]]*\\])?\\{|\\}|◊\\([^)]*\\)|#lang pollen" src-text " "))
+  (define mins (max 1 (exact-ceiling (/ (length (string-split stripped)) 238))))
+  (txexpr 'header '((class "post-header"))
+    (list
+      (txexpr 'p '((class "meta")) (list (txexpr 'a '((href "/blog/index.html")) '("← Blog"))))
+      (txexpr 'h1 empty (list title))
+      (txexpr 'p '((class "meta")) (list (format "~a · ~a ~a" date mins (if (= mins 1) "min" "mins")))))))
 
 ; blog-listing: scans blog/ directory for .html.pm sources, extracts metas
 ; directly from source files via regex — no pagetree or cache dependency.

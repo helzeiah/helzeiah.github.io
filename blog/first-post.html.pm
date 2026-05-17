@@ -1,11 +1,9 @@
 #lang pollen
 
 ◊(define-meta title "First Post -- Life Currently and a Feature Showcase")
-◊(define-meta data "April 2026")
+◊(define-meta date "April 2026")
 
-◊p[#:class "meta"]{◊link["/blog/index.html"]{← Blog}}
-
-◊h1{First Post -- Life Currently and a Feature Showcase}
+◊(blog-header "first-post.html.pm")
 
 Hi, my first blog post, yay! The thought of having a website with a blog has been sitting in the back of my mind for the past few months, and I've finally set the time aside to make it a reality. I hope to use these blog posts a way to talk about my projects, interests, and life in general, hopefully sharing some insightful information along the way.
 
